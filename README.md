@@ -17,6 +17,7 @@ https://raw.githubusercontent.com/za7ef/apps-source/main/source.json
 | M | `com.za7ef.mapp` |
 | Sowtly | `com.za7ef.sawt` |
 | مشغّلي | `com.mohammed.mushaghili` |
+| GTV Emu | `com.za7ef.gtvemu` |
 
 ## التحديث التلقائي
 
