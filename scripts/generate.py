@@ -48,6 +48,11 @@ def main():
             if rel["draft"] or (rel["prerelease"] and not app["includePrereleases"]):
                 continue
             ipa = next((a for a in rel["assets"] if a["name"].lower().endswith(".ipa")), None)
+            fb = app.get("fallbackIPA")
+            if not ipa and fb and fb["tag"] == rel["tag_name"]:
+                # ملف IPA محفوظ في هذا المستودع لإصدار لا يحتوي على ملف مرفق
+                ipa = {"browser_download_url": RAW + fb["path"],
+                       "size": os.path.getsize(os.path.join(ROOT, fb["path"]))}
             if not ipa:
                 continue
             url = ipa["browser_download_url"]
