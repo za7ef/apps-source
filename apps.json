@@ -1,0 +1,29 @@
+{
+  "name": "تطبيقات za7ef",
+  "identifier": "com.za7ef.source",
+  "subtitle": "مصدر التطبيقات الرسمي",
+  "description": "مصدر متوافق مع AltStore وFeather يضم تطبيقات المطوّر za7ef، ويُحدَّث تلقائيًا عند صدور أي إصدار جديد.",
+  "website": "https://github.com/za7ef",
+  "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/m.png",
+  "tintColor": "#6C5CE7",
+  "apps": [
+    {
+      "repo": "za7ef/m-app",
+      "name": "M",
+      "subtitle": "تطبيق البث",
+      "localizedDescription": "تطبيق M للبث على أجهزة آيفون.",
+      "icon": "icons/m.png",
+      "tintColor": "#5B6CFF",
+      "includePrereleases": false
+    },
+    {
+      "repo": "za7ef/sowtly",
+      "name": "Sowtly",
+      "subtitle": "مساعد صوتي سعودي على الجهاز",
+      "localizedDescription": "مساعد صوتي باللهجة السعودية يعمل على الجهاز نفسه.",
+      "icon": "icons/sawt.png",
+      "tintColor": "#8E7CFF",
+      "includePrereleases": true
+    }
+  ]
+}
