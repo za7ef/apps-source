@@ -168,6 +168,43 @@
         }
       ],
       "appPermissions": {}
+    },
+    {
+      "name": "GTV Emu",
+      "bundleIdentifier": "com.za7ef.gtvemu",
+      "developerName": "za7ef",
+      "subtitle": "محاكي AArch64 تجريبي",
+      "localizedDescription": "محاكي تجريبي لمعمارية AArch64 لتشغيل أنظمة لينكس، وهدفه تشغيل Android TV على آيفون. يعمل حاليًا ملف تعريف Alpine Linux فقط، ولم يكتمل إقلاع أندرويد بعد.",
+      "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/gtv-emu.png",
+      "tintColor": "#8C96FF",
+      "version": "0.2.0",
+      "versionDate": "2026-11-21T11:38:04Z",
+      "versionDescription": "- أيقونة جديدة للتطبيق.\n- شاشة «حول التطبيق» تعرض رقم الإصدار ورقم البناء ورابط المطوّر والشكر والتراخيص.\n- صفحتا «سياسة الاستخدام» و«سياسة الخصوصية».\n- إشعار داخل التطبيق عند توفر إصدار جديد، مع ملاحظات الإصدار وزرّي «لاحقًا» و«تحديث».\n- أصبح المستودع عامًا، ولم يعد رمز وصول GitHub مطلوبًا لتنزيل ملفات الأنظمة.\n- إصدار مستقل لكل بناء يحمل رقم الإصدار ورقم البناء، مع ملف IPA مرفق.",
+      "downloadURL": "https://github.com/za7ef/gtv-emu/releases/download/v0.2.0-b6/GTVEmu-0.2.0-b6.ipa",
+      "size": 540599,
+      "versions": [
+        {
+          "bundleIdentifier": "com.za7ef.gtvemu",
+          "version": "0.2.0",
+          "buildVersion": "6",
+          "date": "2026-11-21T11:38:04Z",
+          "localizedDescription": "- أيقونة جديدة للتطبيق.\n- شاشة «حول التطبيق» تعرض رقم الإصدار ورقم البناء ورابط المطوّر والشكر والتراخيص.\n- صفحتا «سياسة الاستخدام» و«سياسة الخصوصية».\n- إشعار داخل التطبيق عند توفر إصدار جديد، مع ملاحظات الإصدار وزرّي «لاحقًا» و«تحديث».\n- أصبح المستودع عامًا، ولم يعد رمز وصول GitHub مطلوبًا لتنزيل ملفات الأنظمة.\n- إصدار مستقل لكل بناء يحمل رقم الإصدار ورقم البناء، مع ملف IPA مرفق.",
+          "downloadURL": "https://github.com/za7ef/gtv-emu/releases/download/v0.2.0-b6/GTVEmu-0.2.0-b6.ipa",
+          "size": 540599,
+          "minOSVersion": "17.0"
+        },
+        {
+          "bundleIdentifier": "com.za7ef.gtvemu",
+          "version": "0.1.0",
+          "buildVersion": "1",
+          "date": "2026-11-14T07:37:06Z",
+          "localizedDescription": "ملفات الإقلاع التي ينزّلها تطبيق GTV Emu على iOS، مع manifest.json يصفها.",
+          "downloadURL": "https://github.com/za7ef/gtv-emu/releases/download/images-v1/GTVEmu-unsigned.ipa",
+          "size": 315264,
+          "minOSVersion": "17.0"
+        }
+      ],
+      "appPermissions": {}
     }
   ],
   "news": []
