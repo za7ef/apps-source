@@ -1,0 +1,218 @@
+name: بناء IPA
+
+# البناء يدوي أو عند وسم إصدار (v0.4.0 مثلًا) فقط، لتوفير دقائق Actions
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+# بناء واحد فقط لكل دفعة: أي بناء أقدم يُلغى
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: اختيار أحدث Xcode
+        run: |
+          XC=$(ls -d /Applications/Xcode_26*.app /Applications/Xcode_27*.app 2>/dev/null | sort -V | tail -1)
+          echo "Using $XC"
+          sudo xcode-select -s "$XC"
+          xcodebuild -version
+          xcodebuild -downloadComponent MetalToolchain || true
+
+      - name: تثبيت الأدوات
+        run: |
+          brew install xcodegen
+          python3 -m pip install --break-system-packages -q huggingface_hub || python3 -m pip install -q huggingface_hub
+
+      - name: تنزيل الأصوات المدمجة
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          V=Sawt/Resources/Voices
+          mkdir -p $V
+          python3 - <<'PY'
+          from huggingface_hub import snapshot_download
+          import shutil, os
+          V = "Sawt/Resources/Voices"
+          def get(repo, dest, pats):
+              p = snapshot_download(repo, allow_patterns=pats)
+              shutil.copytree(p, os.path.join(V, dest), dirs_exist_ok=True)
+          # ميرو (CC BY-NC-ND) لا يُدمج في التطبيق العام؛ يُنزَّل على الجهاز عند الطلب
+          get("csukuangfj/nabra-82m-arabic-int8", "nabra-msa", ["model.int8.onnx", "tokens.txt", "voices.bin"])
+          p = snapshot_download("csukuangfj/vits-piper-ar_JO-SA_miro_V2-high-int8", allow_patterns=["espeak-ng-data/*", "espeak-ng-data/**"])
+          shutil.copytree(os.path.join(p, "espeak-ng-data"), os.path.join(V, "espeak-ng-data"), dirs_exist_ok=True)
+          PY
+          curl -fsSL -o $V/silero_vad.onnx https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
+          # «نبرة سعودية» لا يُدمج: مصدر النموذج ورخصته غير مؤكَّدين والمستودع عام
+          find $V -name '.cache' -prune -exec rm -rf {} + || true
+          du -sh $V/*
+
+      - name: اختبارات المنطق
+        run: |
+          xcrun swiftc -O Sawt/Core/*.swift Tests/main.swift -o /tmp/coretests
+          /tmp/coretests
+
+      - name: ذاكرة الحزم المؤقتة
+        uses: actions/cache@v4
+        with:
+          path: spm
+          # المفتاح يُحسب قبل تعديل رقم البناء، فلا يتغير مع كل تشغيل
+          key: spm-${{ runner.os }}-${{ hashFiles('project.yml') }}
+          restore-keys: spm-${{ runner.os }}-
+
+      - name: رقم الإصدار
+        id: ver
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # رقم الإصدار: يُرفع تلقائيًا إذا كان الرقم الحالي منشورًا من قبل، فلا يتكرر في أكثر من بناء
+          python3 scripts/next_version.py project.yml --commit
+          # رقم البناء = رقم تشغيل الـCI (نفس رقم وسم build-N)
+          sed -i '' -E "s/CURRENT_PROJECT_VERSION: \"[0-9]+\"/CURRENT_PROJECT_VERSION: \"${{ github.run_number }}\"/" project.yml
+          grep -E "MARKETING_VERSION|CURRENT_PROJECT_VERSION" project.yml
+
+      - name: ذاكرة Rust المؤقتة
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            native/sawtctl/target
+          key: rust-${{ runner.os }}-${{ hashFiles('native/sawtctl/Cargo.toml', 'native/sawtctl/src/**') }}
+          restore-keys: rust-${{ runner.os }}-
+
+      - name: بناء أداة التحكم بالجوال (تجريبي)
+        id: rust
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          rustup target add aarch64-apple-ios
+          cd native/sawtctl
+          IPHONEOS_DEPLOYMENT_TARGET=26.0 cargo build --release --target aarch64-apple-ios 2>&1 | tee ../../rust.log | grep -E "^(error|warning: unused)|Finished" || true
+          test -f target/aarch64-apple-ios/release/libsawtctl.a
+          mkdir -p ../lib && cp target/aarch64-apple-ios/release/libsawtctl.a ../lib/
+          ls -la ../lib
+
+      - name: ربط أداة التحكم
+        run: |
+          if [ -f native/lib/libsawtctl.a ]; then
+            python3 -c "import re;p='project.yml';s=open(p).read();s=s.replace('OTHER_LDFLAGS: [\"-lc++\"]','OTHER_LDFLAGS: [\"-lc++\", \"-lsawtctl\"]\n        LIBRARY_SEARCH_PATHS: [\"\$(SRCROOT)/native/lib\"]\n        SWIFT_ACTIVE_COMPILATION_CONDITIONS: [\"\$(inherited)\", \"SAWTCTL\"]');open(p,'w').write(s)"
+            grep -nE "sawtctl|SAWTCTL|native/lib" project.yml
+          else
+            echo "::warning::لم تُبنَ أداة التحكم؛ يُبنى التطبيق بدونها"
+            grep -E "^error" -A8 rust.log | head -150 || true
+          fi
+
+      - name: تنزيل llama.cpp (محرك المعالج)
+        run: |
+          mkdir -p Frameworks
+          curl -sL --retry 3 -o /tmp/llama.zip https://github.com/ggml-org/llama.cpp/releases/download/b12387/llama-b12387-xcframework.zip
+          unzip -q /tmp/llama.zip -d /tmp/llama && mv /tmp/llama/build-apple/llama.xcframework Frameworks/
+          ls Frameworks/llama.xcframework
+          python3 -c "p='project.yml';s=open(p).read();s=s.replace('      - target: SawtWidgets\n        embed: true','      - target: SawtWidgets\n        embed: true\n      - framework: Frameworks/llama.xcframework\n        embed: true',1);s=s.replace('        OTHER_LDFLAGS:','        OTHER_SWIFT_FLAGS: [\"\$(inherited)\", \"-DLLAMA\"]\n        OTHER_LDFLAGS:',1);open(p,'w').write(s)"
+          grep -nE "llama|LLAMA" project.yml
+
+      - name: توليد المشروع
+        run: xcodegen generate
+
+      - name: حل الحزم
+        run: |
+          xcodebuild -resolvePackageDependencies -project Sawt.xcodeproj -scheme Sawt \
+            -clonedSourcePackagesDirPath spm \
+            -skipMacroValidation -skipPackagePluginValidation
+
+      - name: البناء
+        run: |
+          set -o pipefail
+          xcodebuild archive -project Sawt.xcodeproj -scheme Sawt -configuration Release \
+            -destination 'generic/platform=iOS' -archivePath build/Sawt.xcarchive \
+            -clonedSourcePackagesDirPath spm \
+            -skipMacroValidation -skipPackagePluginValidation \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            2>&1 | tee build.log | grep -E "error:|warning: unre|BUILD|ARCHIVE" || true
+          test -d build/Sawt.xcarchive/Products/Applications/Sawt.app
+
+      - name: سجل الأخطاء
+        if: failure()
+        run: grep -E "error:" -A3 build.log | head -200 || true
+
+      - name: تجهيز IPA
+        run: |
+          mkdir -p Payload
+          cp -R build/Sawt.xcarchive/Products/Applications/Sawt.app Payload/
+          # توقيع مؤقت يضمّن صلاحية زيادة الذاكرة؛ أدوات التثبيت الجانبي تعيد التوقيع وتحافظ عليها إذا سمح الحساب
+          cat > ent.plist <<'PL'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+          <key>com.apple.developer.kernel.increased-memory-limit</key><true/>
+          <key>com.apple.developer.kernel.extended-virtual-addressing</key><true/>
+          </dict></plist>
+          PL
+          sed -i '' 's/^          //' ent.plist
+          for f in Payload/Sawt.app/Frameworks/*.framework; do [ -d "$f" ] && codesign -f -s - "$f"; done || true
+          for x in Payload/Sawt.app/PlugIns/*.appex; do [ -d "$x" ] && codesign -f -s - "$x"; done || true
+          ls Payload/Sawt.app/PlugIns || true
+          codesign -f -s - --entitlements ent.plist Payload/Sawt.app || echo "codesign skipped"
+          codesign -d --entitlements - Payload/Sawt.app || true
+          zip -qry Sawt.ipa Payload
+          ls -lh Sawt.ipa
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Sawt-ipa
+          path: Sawt.ipa
+
+      - name: نشر إصدار
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: صوت ${{ steps.ver.outputs.version }} (بناء ${{ github.run_number }})
+          body: ${{ github.event.head_commit.message }}
+          prerelease: true
+          files: Sawt.ipa
+
+      - name: نشر ملف التحديث العام
+        # ننشر update.json بس (بدون IPA) في مستودع عام، لأن تراخيص بعض الأصوات المدمجة ما تسمح بإعادة النشر العام.
+        # يحتاج سر SAWT_RELEASES_TOKEN (توكن دقيق بصلاحية Contents: write على za7ef/sawt-releases فقط)
+        env:
+          GH_TOKEN: ${{ secrets.SAWT_RELEASES_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then echo "no SAWT_RELEASES_TOKEN, skipping"; exit 0; fi
+          set -e
+          N=${{ github.run_number }}
+          V=${{ steps.ver.outputs.version }}
+          PUB=za7ef/sawt-releases
+          # ملاحظات منتقاة من whatsnew.md فقط (المستودع خاص، فما ننشر رسائل الـcommit)
+          if [ -f whatsnew.md ]; then cp whatsnew.md /tmp/notes.txt; else : > /tmp/notes.txt; fi
+          python3 - "$V" "$N" "${{ github.repository }}" <<'PY'
+          import json, sys
+          v, n, repo = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+          notes = open("/tmp/notes.txt").read().strip()
+          json.dump({"version": v, "build": n, "notes": notes,
+                     "url": f"https://github.com/{repo}/releases/tag/build-{n}"},
+                    open("/tmp/update.json", "w"), ensure_ascii=False, indent=2)
+          PY
+          SHA=$(gh api repos/$PUB/contents/update.json --jq .sha 2>/dev/null || echo "")
+          gh api -X PUT repos/$PUB/contents/update.json -f message="تحديث $V (بناء $N)" \
+            -f content="$(base64 < /tmp/update.json | tr -d '\n')" ${SHA:+-f sha=$SHA}
+
+      - name: تنظيف الإصدارات القديمة
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release list -R ${{ github.repository }} --limit 100 --json tagName --jq '.[].tagName' \
+            | grep -E '^build-[0-9]+$' | sort -t- -k2 -n -r | tail -n +11 | while read t; do
+            gh release delete "$t" -R ${{ github.repository }} --yes --cleanup-tag || true
+          done
