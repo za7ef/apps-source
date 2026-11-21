@@ -37,6 +37,15 @@
         "tag": "v1.3.2",
         "path": "ipas/mushaghili-1.3.2.ipa"
       }
+    },
+    {
+      "repo": "za7ef/gtv-emu",
+      "name": "GTV Emu",
+      "subtitle": "محاكي AArch64 تجريبي",
+      "localizedDescription": "محاكي تجريبي لمعمارية AArch64 لتشغيل أنظمة لينكس، وهدفه تشغيل Android TV على آيفون. يعمل حاليًا ملف تعريف Alpine Linux فقط، ولم يكتمل إقلاع أندرويد بعد.",
+      "icon": "icons/gtv-emu.png",
+      "tintColor": "#8C96FF",
+      "includePrereleases": false
     }
   ]
 }
