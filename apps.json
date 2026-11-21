@@ -46,6 +46,15 @@
       "icon": "icons/gtv-emu.png",
       "tintColor": "#8C96FF",
       "includePrereleases": false
+    },
+    {
+      "repo": "za7ef/muthabbit",
+      "name": "مُثبِّت",
+      "subtitle": "تثبيت التطبيقات وتحديثها بضغطة واحدة",
+      "localizedDescription": "أداة مبسّطة لإضافة المصادر وتصفّح تطبيقاتها وتثبيتها بشهادة التوقيع الخاصة، مع التنبيه عند توفر التحديثات.",
+      "icon": "icons/muthabbit.png",
+      "tintColor": "#14A487",
+      "includePrereleases": true
     }
   ]
 }
