@@ -14,6 +14,7 @@
       "localizedDescription": "تطبيق M للبث على أجهزة آيفون.",
       "icon": "icons/m.png",
       "tintColor": "#5B6CFF",
+      "category": "entertainment",
       "includePrereleases": false
     },
     {
@@ -23,6 +24,7 @@
       "localizedDescription": "مساعد صوتي باللهجة السعودية يعمل على الجهاز نفسه.",
       "icon": "icons/sawt.png",
       "tintColor": "#8E7CFF",
+      "category": "utilities",
       "includePrereleases": true
     },
     {
@@ -32,6 +34,7 @@
       "localizedDescription": "مشغّل فيديو لأجهزة آيفون بتصميم Liquid Glass، يدعم الروابط المباشرة والملفات والترجمة وAirPlay.",
       "icon": "icons/mushaghili.png",
       "tintColor": "#0A84FF",
+      "category": "entertainment",
       "includePrereleases": false,
       "fallbackIPA": {
         "tag": "v1.3.2",
@@ -45,15 +48,17 @@
       "localizedDescription": "محاكي تجريبي لمعمارية AArch64 لتشغيل أنظمة لينكس، وهدفه تشغيل Android TV على آيفون. يعمل حاليًا ملف تعريف Alpine Linux فقط، ولم يكتمل إقلاع أندرويد بعد.",
       "icon": "icons/gtv-emu.png",
       "tintColor": "#8C96FF",
+      "category": "EMU",
       "includePrereleases": false
     },
     {
       "repo": "za7ef/muthabbit",
-      "name": "مُثبِّت",
+      "name": "وسم",
       "subtitle": "تثبيت التطبيقات وتحديثها بضغطة واحدة",
-      "localizedDescription": "أداة مبسّطة لإضافة المصادر وتصفّح تطبيقاتها وتثبيتها بشهادة التوقيع الخاصة، مع التنبيه عند توفر التحديثات.",
-      "icon": "icons/muthabbit.png",
-      "tintColor": "#14A487",
+      "localizedDescription": "Wasm — أداة مبسّطة لإضافة المصادر وتصفّح تطبيقاتها وتثبيتها بشهادة التوقيع الخاصة، مع التنبيه عند توفر التحديثات.",
+      "icon": "icons/wasm.png",
+      "tintColor": "#6A2FD8",
+      "category": "Sideloading",
       "includePrereleases": true
     }
   ]

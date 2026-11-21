@@ -91,6 +91,7 @@ def main():
             "localizedDescription": app["localizedDescription"],
             "iconURL": RAW + app["icon"],
             "tintColor": app["tintColor"],
+            "category": app.get("category", "other"),
             # حقول مسطّحة للتوافق مع الصيغ القديمة (ESign/Feather)
             "version": latest["version"],
             "versionDate": latest["date"],
