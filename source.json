@@ -141,6 +141,33 @@
         }
       ],
       "appPermissions": {}
+    },
+    {
+      "name": "مشغّلي",
+      "bundleIdentifier": "com.mohammed.mushaghili",
+      "developerName": "za7ef",
+      "subtitle": "مشغّل فيديو بتصميم Liquid Glass",
+      "localizedDescription": "مشغّل فيديو لأجهزة آيفون بتصميم Liquid Glass، يدعم الروابط المباشرة والملفات والترجمة وAirPlay.",
+      "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/mushaghili.png",
+      "tintColor": "#0A84FF",
+      "version": "1.3.2",
+      "versionDate": "2026-11-11T03:26:50Z",
+      "versionDescription": "**العربية**\n- تحويل جميع النصوص العربية في التطبيق إلى العربية الفصحى: الواجهة، وأسماء التبويبات، والإعدادات، وشاشة «حول التطبيق»، وشروط الاستخدام، وسياسة الخصوصية.\n\n**English**\n- All Arabic text in the app now uses Modern Standard Arabic: the interface, tab names, settings, About screen, Terms of Use and Privacy Policy.\n\n---\n**التثبيت · Install:** نزّل ملف `.ipa` من مخرجات البناء أو من هذه الصفحة وافتحه في SideStore. Download the `.ipa` and open it with SideStore.",
+      "downloadURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/ipas/mushaghili-1.3.2.ipa",
+      "size": 13298704,
+      "versions": [
+        {
+          "bundleIdentifier": "com.mohammed.mushaghili",
+          "version": "1.3.2",
+          "buildVersion": "1",
+          "date": "2026-11-11T03:26:50Z",
+          "localizedDescription": "**العربية**\n- تحويل جميع النصوص العربية في التطبيق إلى العربية الفصحى: الواجهة، وأسماء التبويبات، والإعدادات، وشاشة «حول التطبيق»، وشروط الاستخدام، وسياسة الخصوصية.\n\n**English**\n- All Arabic text in the app now uses Modern Standard Arabic: the interface, tab names, settings, About screen, Terms of Use and Privacy Policy.\n\n---\n**التثبيت · Install:** نزّل ملف `.ipa` من مخرجات البناء أو من هذه الصفحة وافتحه في SideStore. Download the `.ipa` and open it with SideStore.",
+          "downloadURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/ipas/mushaghili-1.3.2.ipa",
+          "size": 13298704,
+          "minOSVersion": "16.4"
+        }
+      ],
+      "appPermissions": {}
     }
   ],
   "news": []
