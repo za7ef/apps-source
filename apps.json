@@ -24,6 +24,19 @@
       "icon": "icons/sawt.png",
       "tintColor": "#8E7CFF",
       "includePrereleases": true
+    },
+    {
+      "repo": "za7ef/mushaghili",
+      "name": "مشغّلي",
+      "subtitle": "مشغّل فيديو بتصميم Liquid Glass",
+      "localizedDescription": "مشغّل فيديو لأجهزة آيفون بتصميم Liquid Glass، يدعم الروابط المباشرة والملفات والترجمة وAirPlay.",
+      "icon": "icons/mushaghili.png",
+      "tintColor": "#0A84FF",
+      "includePrereleases": false,
+      "fallbackIPA": {
+        "tag": "v1.3.2",
+        "path": "ipas/mushaghili-1.3.2.ipa"
+      }
     }
   ]
 }
