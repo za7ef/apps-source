@@ -57,7 +57,7 @@ def main():
                 continue
             url = ipa["browser_download_url"]
             if url in known:
-                v = known[url]
+                v = dict(known[url])
             else:
                 info = read_info(url)
                 v = {
@@ -70,6 +70,9 @@ def main():
                     "size": ipa["size"],
                     "minOSVersion": info.get("MinimumOSVersion", "15.0"),
                 }
+            # علامة صريحة للإصدار التجريبي مأخوذة من حالة الإصدار في GitHub
+            v["prerelease"] = bool(rel["prerelease"])
+            v["beta"] = bool(rel["prerelease"])
             versions.append(v)
             if len(versions) >= MAX_VERSIONS:
                 break
@@ -78,7 +81,8 @@ def main():
             continue
         bundle = versions[0]["bundleIdentifier"]
         versions = [v for v in versions if v["bundleIdentifier"] == bundle]
-        latest = versions[0]
+        # الحقول المسطّحة تشير إلى أحدث إصدار رسمي، أو إلى أحدث تجريبي عند عدم وجود رسمي
+        latest = next((v for v in versions if not v.get("prerelease")), versions[0])
         apps.append({
             "name": app["name"],
             "bundleIdentifier": bundle,
