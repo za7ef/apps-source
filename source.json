@@ -241,7 +241,7 @@
       "bundleIdentifier": "com.za7ef.gtvemu",
       "developerName": "za7ef",
       "subtitle": "محاكي AArch64 تجريبي",
-      "localizedDescription": "محاكي تجريبي لمعمارية AArch64 لتشغيل أنظمة لينكس، وهدفه تشغيل Android TV على آيفون. يعمل حاليًا ملف تعريف Alpine Linux فقط، ولم يكتمل إقلاع أندرويد بعد.",
+      "localizedDescription": "محاكي تجريبي لمعمارية AArch64 لتشغيل أنظمة لينكس وAndroid TV على آيفون. يُنزَّل نظام Android TV 16 الرسمي من خوادم Google مباشرة ويُجهَّز على الجهاز، ويصل حاليًا إلى شعار الإقلاع. يحتاج JIT ونحو 3.5 غيغابايت من المساحة.",
       "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/gtv-emu.png",
       "tintColor": "#8C96FF",
       "category": "EMU",
