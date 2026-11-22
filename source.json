@@ -175,7 +175,7 @@
       "category": "utilities",
       "version": "0.2",
       "versionDate": "2026-11-22T18:18:14Z",
-      "versionDescription": "صوت 0.4.4 · صوت لايت 0.2 (بناء 221)",
+      "versionDescription": "صوت لايت 0.2 (بناء 221): عودة قائمة نماذج MLX الكاملة على الجهاز.\n- يمكن اختيار أي نموذج منها، ومنها Gemma 4 E2B وGemma 3 4B وQwen3.5 2B وQwen3 4B.\n- يبقى Qwen3.5 4B النموذج الافتراضي والموصى به.\n- يُنزَّل كل نموذج مرة واحدة، ويمكن حذفه وحده.",
       "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-221/SawtLite.ipa",
       "size": 101722465,
       "versions": [
@@ -184,7 +184,7 @@
           "version": "0.2",
           "buildVersion": "221",
           "date": "2026-11-22T18:18:14Z",
-          "localizedDescription": "صوت 0.4.4 · صوت لايت 0.2 (بناء 221)",
+          "localizedDescription": "صوت لايت 0.2 (بناء 221): عودة قائمة نماذج MLX الكاملة على الجهاز.\n- يمكن اختيار أي نموذج منها، ومنها Gemma 4 E2B وGemma 3 4B وQwen3.5 2B وQwen3 4B.\n- يبقى Qwen3.5 4B النموذج الافتراضي والموصى به.\n- يُنزَّل كل نموذج مرة واحدة، ويمكن حذفه وحده.",
           "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-221/SawtLite.ipa",
           "size": 101722465,
           "minOSVersion": "26.0",
