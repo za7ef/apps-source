@@ -95,12 +95,24 @@
       "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/sawt.png",
       "tintColor": "#8E7CFF",
       "category": "utilities",
-      "version": "0.4.3",
-      "versionDate": "2026-11-22T17:16:18Z",
-      "versionDescription": "صوت 0.4.3 · صوت لايت 0.1 (بناء 220)",
-      "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-220/Sawt.ipa",
-      "size": 107539657,
+      "version": "0.4.4",
+      "versionDate": "2026-11-22T18:18:14Z",
+      "versionDescription": "صوت 0.4.4 · صوت لايت 0.2 (بناء 221)",
+      "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-221/Sawt.ipa",
+      "size": 107539306,
       "versions": [
+        {
+          "bundleIdentifier": "com.za7ef.sawt",
+          "version": "0.4.4",
+          "buildVersion": "221",
+          "date": "2026-11-22T18:18:14Z",
+          "localizedDescription": "صوت 0.4.4 · صوت لايت 0.2 (بناء 221)",
+          "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-221/Sawt.ipa",
+          "size": 107539306,
+          "minOSVersion": "26.0",
+          "prerelease": true,
+          "beta": true
+        },
         {
           "bundleIdentifier": "com.za7ef.sawt",
           "version": "0.4.3",
@@ -148,18 +160,6 @@
           "minOSVersion": "26.0",
           "prerelease": true,
           "beta": true
-        },
-        {
-          "bundleIdentifier": "com.za7ef.sawt",
-          "version": "0.4.0",
-          "buildVersion": "214",
-          "date": "2026-11-17T10:21:18Z",
-          "localizedDescription": "صوت 0.4.0 (بناء 214)",
-          "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-214/Sawt.ipa",
-          "size": 107450369,
-          "minOSVersion": "26.0",
-          "prerelease": true,
-          "beta": true
         }
       ],
       "appPermissions": {}
@@ -173,12 +173,24 @@
       "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/sawt-lite.png",
       "tintColor": "#8E7CFF",
       "category": "utilities",
-      "version": "0.1",
-      "versionDate": "2026-11-22T17:16:18Z",
-      "versionDescription": "صوت لايت 0.1 (بناء 220): الإصدار الأول من نسخة خفيفة من Sowtly تركّز على المحادثة والمكالمة الصوتية.\n- يعمل النموذج اللغوي على الجهاز عبر MLX على معالج الرسوميات، بنموذج واحد هو Qwen3.5 4B يفهم النص والصور.\n- أصوات أودار تعمل عبر MLX، وتُحوَّل أوزانها على الجهاز إلى ست بتات مرة واحدة.\n- صوت Supertonic 3 اختياري يُنزَّل عند الطلب.\n- لا تتضمن ميزة الوكيل ولا التحكم بالجهاز.",
-      "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-220/SawtLite.ipa",
-      "size": 101721606,
+      "version": "0.2",
+      "versionDate": "2026-11-22T18:18:14Z",
+      "versionDescription": "صوت 0.4.4 · صوت لايت 0.2 (بناء 221)",
+      "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-221/SawtLite.ipa",
+      "size": 101722465,
       "versions": [
+        {
+          "bundleIdentifier": "com.za7ef.sawt.lite",
+          "version": "0.2",
+          "buildVersion": "221",
+          "date": "2026-11-22T18:18:14Z",
+          "localizedDescription": "صوت 0.4.4 · صوت لايت 0.2 (بناء 221)",
+          "downloadURL": "https://github.com/za7ef/sowtly/releases/download/build-221/SawtLite.ipa",
+          "size": 101722465,
+          "minOSVersion": "26.0",
+          "prerelease": true,
+          "beta": true
+        },
         {
           "bundleIdentifier": "com.za7ef.sawt.lite",
           "version": "0.1",
