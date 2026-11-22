@@ -16,6 +16,7 @@ https://raw.githubusercontent.com/za7ef/apps-source/main/source.json
 |---|---|
 | M | `com.za7ef.mapp` |
 | Sowtly | `com.za7ef.sawt` |
+| صوت لايت (Sawt Lite) | `com.za7ef.sawt.lite` |
 | مشغّلي | `com.mohammed.mushaghili` |
 | GTV Emu | `com.za7ef.gtvemu` |
 

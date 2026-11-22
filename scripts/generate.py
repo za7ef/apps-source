@@ -47,7 +47,9 @@ def main():
         for rel in api(f"repos/{app['repo']}/releases?per_page=30"):
             if rel["draft"] or (rel["prerelease"] and not app["includePrereleases"]):
                 continue
-            ipa = next((a for a in rel["assets"] if a["name"].lower().endswith(".ipa")), None)
+            # «asset» اختياري: اسم ملف IPA بعينه عندما يضم الإصدار أكثر من تطبيق (مثل Sawt.ipa وSawtLite.ipa)
+            want = app.get("asset")
+            ipa = next((a for a in rel["assets"] if (a["name"] == want if want else a["name"].lower().endswith(".ipa"))), None)
             fb = app.get("fallbackIPA")
             if not ipa and fb and fb["tag"] == rel["tag_name"]:
                 # ملف IPA محفوظ في هذا المستودع لإصدار لا يحتوي على ملف مرفق

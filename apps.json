@@ -25,6 +25,18 @@
       "icon": "icons/sawt.png",
       "tintColor": "#8E7CFF",
       "category": "utilities",
+      "includePrereleases": true,
+      "asset": "Sawt.ipa"
+    },
+    {
+      "repo": "za7ef/sowtly",
+      "asset": "SawtLite.ipa",
+      "name": "Sawt Lite",
+      "subtitle": "صوت لايت: مساعد صوتي خفيف على الجهاز",
+      "localizedDescription": "صوت لايت نسخة خفيفة من Sowtly تركّز على المحادثة والمكالمة الصوتية، ويعمل كل شيء فيها على الجهاز عبر MLX على معالج الرسوميات، بنموذج لغوي واحد (Qwen3.5 4B) يفهم النص والصور، مع أصوات أودار وصوت Supertonic الاختياري. لا تتضمن ميزة الوكيل ولا التحكم بالجهاز.",
+      "icon": "icons/sawt-lite.png",
+      "tintColor": "#8E7CFF",
+      "category": "utilities",
       "includePrereleases": true
     },
     {
