@@ -323,12 +323,24 @@
       "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/wasm.png",
       "tintColor": "#6A2FD8",
       "category": "Sideloading",
-      "version": "1.26",
-      "versionDate": "2026-11-24T16:16:59Z",
-      "versionDescription": "## وسم 1.26\n\n- إصلاح «تنظيف الملفات غير المستخدمة» الذي لم يكن يحذف النسخ غير الموقّعة: صارت تُعدّ قابلة لإعادة التنزيل إذا حُفظت معها بيانات مصدرها أو رابطه، أو كان التطبيق متوفرًا في أحد المصادر المضافة، دون اشتراط أن يكون مثبّتًا. وتبقى التطبيقات المستوردة يدويًا من «الملفات».\n- في «تفاصيل المساحة»: قائمة بالنسخ غير الموقّعة تعرض اسم كل تطبيق وحجمه، ويمكن حذف أي نسخة بالسحب.\n- لم يعد «تنظيف الملفات غير المستخدمة» يمسح الكاش، فله زر «مسح الكاش» المستقل.",
-      "downloadURL": "https://github.com/za7ef/wasm/releases/download/v1.26/Wasm.ipa",
-      "size": 22886325,
+      "version": "1.27",
+      "versionDate": "2026-11-24T16:49:08Z",
+      "versionDescription": "## وسم 1.27\n\n- يُرفق ملف الإصدار باسم `Wasm.ipa` وحده بدل `Muthabbit.ipa`، ويظل التحديث الذاتي يقبل الاسمين.\n- صارت عناوين الإصدارات بالإنجليزية بصيغة «Wasm <الإصدار> (Build <رقم البناء>)».",
+      "downloadURL": "https://github.com/za7ef/wasm/releases/download/v1.27/Wasm.ipa",
+      "size": 22886316,
       "versions": [
+        {
+          "bundleIdentifier": "com.za7ef.muthabbit",
+          "version": "1.27",
+          "buildVersion": "38",
+          "date": "2026-11-24T16:49:08Z",
+          "localizedDescription": "## وسم 1.27\n\n- يُرفق ملف الإصدار باسم `Wasm.ipa` وحده بدل `Muthabbit.ipa`، ويظل التحديث الذاتي يقبل الاسمين.\n- صارت عناوين الإصدارات بالإنجليزية بصيغة «Wasm <الإصدار> (Build <رقم البناء>)».",
+          "downloadURL": "https://github.com/za7ef/wasm/releases/download/v1.27/Wasm.ipa",
+          "size": 22886316,
+          "minOSVersion": "16.0",
+          "prerelease": false,
+          "beta": false
+        },
         {
           "bundleIdentifier": "com.za7ef.muthabbit",
           "version": "1.26",
@@ -373,18 +385,6 @@
           "localizedDescription": "## وسم 1.23\n\n- إصلاح تراكم الملفات في «المساحة المستخدمة»: تُحذف عند التشغيل مجلدات التطبيقات اليتيمة التي لا يشير إليها أي سجل، وتُحذف نسخ «وسم» القديمة بعد تحديثه الذاتي.\n- توحيد التنظيف بعد كل تثبيت ناجح في جميع المسارات (التثبيت السريع، والتحديث، وشاشة سير التثبيت، وطريقة idevice).\n- عند تفعيل «حذف الملف بعد التثبيت أو التحديث» تُحذف النسخ غير الموقّعة أيضًا، وتُحذف النسخة الموقّعة من المحاولة الفاشلة أو الملغاة.\n- حفظ قاعدة البيانات فور الحذف لئلا تبقى ملفات بلا سجل عند إغلاق التطبيق.\n- في الإعدادات: «تفاصيل المساحة» لعرض توزيعها، وزر «تنظيف الملفات غير المستخدمة» الذي يشمل الأرشيف والملفات المؤقتة، مع عدم المساس بالشهادات وملف الاقتران وأي تثبيت جارٍ.",
           "downloadURL": "https://github.com/za7ef/wasm/releases/download/v1.23/Muthabbit.ipa",
           "size": 22875056,
-          "minOSVersion": "16.0",
-          "prerelease": false,
-          "beta": false
-        },
-        {
-          "bundleIdentifier": "com.za7ef.muthabbit",
-          "version": "1.22",
-          "buildVersion": "32",
-          "date": "2026-11-24T12:59:59Z",
-          "localizedDescription": "## وسم 1.22\n\n### التغييرات\n- توحيد اسم «وسم» في عناوين الإصدارات الجديدة.\n- تحديث وصف التطبيق في صفحة المستودع.",
-          "downloadURL": "https://github.com/za7ef/wasm/releases/download/v1.22/Muthabbit.ipa",
-          "size": 22866886,
           "minOSVersion": "16.0",
           "prerelease": false,
           "beta": false
