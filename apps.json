@@ -64,7 +64,7 @@
       "includePrereleases": false
     },
     {
-      "repo": "za7ef/muthabbit",
+      "repo": "za7ef/wasm",
       "name": "وسم",
       "subtitle": "تثبيت التطبيقات وتحديثها بضغطة واحدة",
       "localizedDescription": "وسم (Wasm): أداة مبسّطة لإضافة المصادر وتصفّح تطبيقاتها وتثبيتها بشهادة التوقيع الخاصة، مع التنبيه عند توفر التحديثات.",
