@@ -323,12 +323,24 @@
       "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/wasm.png",
       "tintColor": "#6A2FD8",
       "category": "Sideloading",
-      "version": "1.18",
-      "versionDate": "2026-11-22T18:44:53Z",
-      "versionDescription": "## وسم 1.18\n\n### الإصلاحات\n- إصلاح عدم ظهور التحديثات للتطبيقات التي لا تتوفر لها إلا إصدارات تجريبية، مثل «صوت لايت» و«Sowtly»؛ إذ صار يظهر لها «تحديث» إلى أحدث إصدار تجريبي.\n- يبقى المبدأ كما هو للتطبيقات التي لها إصدار رسمي: لا تظهر لها إشعارات تحديث بسبب الإصدارات التجريبية.",
-      "downloadURL": "https://github.com/za7ef/muthabbit/releases/download/v1.18/Muthabbit.ipa",
-      "size": 22855598,
+      "version": "1.19",
+      "versionDate": "2026-11-24T06:56:23Z",
+      "versionDescription": "## وسم 1.19\n\n### الإضافات\n- إضافة مصدر SideInstaller الرسمي (FrizzleM) إلى قائمة المصادر المقترحة.\n\n### الإصلاحات\n- إصلاح ظهور إشعار «تحديث» وهمي لتطبيقات مثبّتة بأحدث إصدار، عندما يكتب المصدر رقم الإصدار مسبوقًا بنص، مثل «andarium-1.1» بدل «1.1» (تطبيق Andarium في مصدر ryP0).\n- عند تطابق رقم الإصدار، يُقارَن رقم البناء أيضًا إن توفّر في الطرفين: إذا تطابق فلا يظهر تحديث، وإذا اختلف يظهر «تحديث». ويُقرأ رقم بناء التطبيق المثبّت من النظام عند الحاجة.",
+      "downloadURL": "https://github.com/za7ef/muthabbit/releases/download/v1.19/Muthabbit.ipa",
+      "size": 22855991,
       "versions": [
+        {
+          "bundleIdentifier": "com.za7ef.muthabbit",
+          "version": "1.19",
+          "buildVersion": "29",
+          "date": "2026-11-24T06:56:23Z",
+          "localizedDescription": "## وسم 1.19\n\n### الإضافات\n- إضافة مصدر SideInstaller الرسمي (FrizzleM) إلى قائمة المصادر المقترحة.\n\n### الإصلاحات\n- إصلاح ظهور إشعار «تحديث» وهمي لتطبيقات مثبّتة بأحدث إصدار، عندما يكتب المصدر رقم الإصدار مسبوقًا بنص، مثل «andarium-1.1» بدل «1.1» (تطبيق Andarium في مصدر ryP0).\n- عند تطابق رقم الإصدار، يُقارَن رقم البناء أيضًا إن توفّر في الطرفين: إذا تطابق فلا يظهر تحديث، وإذا اختلف يظهر «تحديث». ويُقرأ رقم بناء التطبيق المثبّت من النظام عند الحاجة.",
+          "downloadURL": "https://github.com/za7ef/muthabbit/releases/download/v1.19/Muthabbit.ipa",
+          "size": 22855991,
+          "minOSVersion": "16.0",
+          "prerelease": false,
+          "beta": false
+        },
         {
           "bundleIdentifier": "com.za7ef.muthabbit",
           "version": "1.18",
@@ -373,18 +385,6 @@
           "localizedDescription": "## وسم 1.15\n\n### التحسينات\n- الشريط العلوي في صفحة التطبيق صار شفافًا بتلاشٍ وضبابية تدريجية بأسلوب iOS 26 كما في المتجر، دون خط فاصل أسفله.\n\n### الإصلاحات\n- إعادة زر التثبيت في الشريط العلوي لصفحة التطبيق إلى موضعه بجوار زر المشاركة، مع توسيطه عموديًا وإزالة سطر الحجم أسفله.",
           "downloadURL": "https://github.com/za7ef/muthabbit/releases/download/v1.15/Muthabbit.ipa",
           "size": 22828817,
-          "minOSVersion": "16.0",
-          "prerelease": false,
-          "beta": false
-        },
-        {
-          "bundleIdentifier": "com.za7ef.muthabbit",
-          "version": "1.14",
-          "buildVersion": "24",
-          "date": "2026-11-22T10:00:00Z",
-          "localizedDescription": "## وسم 1.14\n\n### التحسينات\n- شريط العنوان في المتجر صار شفافًا بتلاشٍ وضبابية تدريجية للمحتوى أسفل العنوان بأسلوب iOS 26، بدل الشريط الرمادي المصمت.\n\n### الإصلاحات\n- إعادة تصميم زر التثبيت في الشريط العلوي لصفحة التطبيق عند التمرير؛ إذ صار زرًا صغيرًا مستقلًا بجوار أيقونة التطبيق في المنتصف، منفصلًا عن زر المشاركة، ودون سطر الحجم.\n- لم يعد قسم «ما الجديد» يظهر فارغًا؛ فتُعرض ملاحظات أحدث إصدار تتوفر له ملاحظات، أو عبارة «لا توجد ملاحظات لهذا الإصدار» عند عدم توفرها.\n- إصلاح تداخل زر التثبيت مع نص الوصف في بطاقة «جديد هذا الأسبوع»؛ إذ صار للزر صفّ مستقل.\n- لا يظهر زر «تثبيت» لتطبيق وسم نفسه في المتجر، بل يظهر «محدّث»، أو «تحديث» عند توفر إصدار أحدث من الإصدار المثبّت.",
-          "downloadURL": "https://github.com/za7ef/muthabbit/releases/download/v1.14/Muthabbit.ipa",
-          "size": 22828929,
           "minOSVersion": "16.0",
           "prerelease": false,
           "beta": false
