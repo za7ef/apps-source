@@ -103,6 +103,8 @@ def main():
             "versions": versions,
             "appPermissions": {},
         })
+        if app.get("screenshotURLs"):
+            apps[-1]["screenshotURLs"] = app["screenshotURLs"]
 
     src = {k: cfg[k] for k in ("name", "identifier", "subtitle", "description",
                                 "website", "iconURL", "tintColor")}

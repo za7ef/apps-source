@@ -66,12 +66,17 @@
     {
       "repo": "za7ef/wasm",
       "name": "وسم",
-      "subtitle": "تثبيت التطبيقات وتحديثها بضغطة واحدة",
-      "localizedDescription": "وسم (Wasm): أداة مبسّطة لإضافة المصادر وتصفّح تطبيقاتها وتثبيتها بشهادة التوقيع الخاصة، مع التنبيه عند توفر التحديثات.",
+      "subtitle": "تثبيت التطبيقات من خارج App Store وتحديثها بضغطة واحدة",
+      "localizedDescription": "وسم: متجر لتثبيت التطبيقات من خارج App Store بتصميم بسيط وسهل الاستخدام. اضغط «تثبيت» فيُنزَّل التطبيق ويُوقَّع ويُثبَّت دون شاشات توقيع أو خطوات إضافية، ويتابع التطبيقات المثبّتة ويحدّثها جميعًا بضغطة واحدة. يدعم عدة لغات ويترجم أوصاف التطبيقات تلقائيًا وفق لغة الجهاز أو اللغة المختارة، وهو مفتوح المصدر.",
       "icon": "icons/wasm.png",
       "tintColor": "#6A2FD8",
       "category": "Sideloading",
-      "includePrereleases": true
+      "includePrereleases": true,
+      "screenshotURLs": [
+        "https://raw.githubusercontent.com/za7ef/wasm/main/docs/screenshots/store.jpg",
+        "https://raw.githubusercontent.com/za7ef/wasm/main/docs/screenshots/my-apps.jpg",
+        "https://raw.githubusercontent.com/za7ef/wasm/main/docs/screenshots/settings.jpg"
+      ]
     }
   ]
 }
