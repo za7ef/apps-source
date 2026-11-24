@@ -50,6 +50,10 @@ def main():
             # «asset» اختياري: اسم ملف IPA بعينه عندما يضم الإصدار أكثر من تطبيق (مثل Sawt.ipa وSawtLite.ipa)
             want = app.get("asset")
             ipa = next((a for a in rel["assets"] if (a["name"] == want if want else a["name"].lower().endswith(".ipa"))), None)
+            # «preferAsset» اختياري: اسم مفضّل، وإلا فأي ملف IPA (للإصدارات السابقة لتغيير الاسم)
+            pref = app.get("preferAsset")
+            if pref and not want:
+                ipa = next((a for a in rel["assets"] if a["name"] == pref), ipa)
             fb = app.get("fallbackIPA")
             if not ipa and fb and fb["tag"] == rel["tag_name"]:
                 # ملف IPA محفوظ في هذا المستودع لإصدار لا يحتوي على ملف مرفق

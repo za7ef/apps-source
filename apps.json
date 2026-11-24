@@ -76,7 +76,8 @@
         "https://raw.githubusercontent.com/za7ef/wasm/main/docs/screenshots/store.jpg",
         "https://raw.githubusercontent.com/za7ef/wasm/main/docs/screenshots/my-apps.jpg",
         "https://raw.githubusercontent.com/za7ef/wasm/main/docs/screenshots/settings.jpg"
-      ]
+      ],
+      "preferAsset": "Wasm.ipa"
     }
   ]
 }
