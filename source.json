@@ -245,12 +245,24 @@
       "iconURL": "https://raw.githubusercontent.com/za7ef/apps-source/main/icons/gtv-emu.png",
       "tintColor": "#8C96FF",
       "category": "EMU",
-      "version": "0.5.0",
-      "versionDate": "2026-11-23T09:56:44Z",
+      "version": "0.5.1",
+      "versionDate": "2026-11-24T22:43:02Z",
       "versionDescription": "- **دعم ملف الاقتران RemotePairing:** يقبل التفعيل المدمج الآن ملف RemotePairing الذي يستخدمه StikDebug 3 (مثل rp_pairing_file.plist)، وهو النوع الذي يتطلبه إطار StikJIT. ويتعرّف التطبيق على نوع الملف من محتواه ويعرضه في الإعدادات، ويوضح أن ملفات الاقتران التقليدية (lockdown) لا تعمل مع الطريقة المدمجة.\n- **إصلاح تعذّر اختيار ملف الاقتران:** كان الملف يظهر باهتًا في منتقي الملفات عند بعض أدوات التثبيت الجانبي. أصبح المنتقي يقبل كل أنواع الملفات ويفتحها بنسخة، ويُتحقق من صلاحية الملف بعد اختياره.\n- **طرق استيراد بديلة:** مشاركة الملف من تطبيق الملفات إلى GTV Emu، أو نسخه إلى مجلد التطبيق في «ملفات ← على جهازي ← GTV Emu» فيُستورد تلقائيًا ثم تُحذف نسخته المكشوفة، أو لصق محتواه من الحافظة.",
-      "downloadURL": "https://github.com/za7ef/gtv-emu/releases/download/v0.5.0-b11/GTVEmu-0.5.0-b11.ipa",
-      "size": 2534491,
+      "downloadURL": "https://github.com/za7ef/gtv-emu/releases/download/v0.5.1-b12/GTVEmu-0.5.1-b12.ipa",
+      "size": 2534494,
       "versions": [
+        {
+          "bundleIdentifier": "com.za7ef.gtvemu",
+          "version": "0.5.1",
+          "buildVersion": "12",
+          "date": "2026-11-24T22:43:02Z",
+          "localizedDescription": "- **دعم ملف الاقتران RemotePairing:** يقبل التفعيل المدمج الآن ملف RemotePairing الذي يستخدمه StikDebug 3 (مثل rp_pairing_file.plist)، وهو النوع الذي يتطلبه إطار StikJIT. ويتعرّف التطبيق على نوع الملف من محتواه ويعرضه في الإعدادات، ويوضح أن ملفات الاقتران التقليدية (lockdown) لا تعمل مع الطريقة المدمجة.\n- **إصلاح تعذّر اختيار ملف الاقتران:** كان الملف يظهر باهتًا في منتقي الملفات عند بعض أدوات التثبيت الجانبي. أصبح المنتقي يقبل كل أنواع الملفات ويفتحها بنسخة، ويُتحقق من صلاحية الملف بعد اختياره.\n- **طرق استيراد بديلة:** مشاركة الملف من تطبيق الملفات إلى GTV Emu، أو نسخه إلى مجلد التطبيق في «ملفات ← على جهازي ← GTV Emu» فيُستورد تلقائيًا ثم تُحذف نسخته المكشوفة، أو لصق محتواه من الحافظة.",
+          "downloadURL": "https://github.com/za7ef/gtv-emu/releases/download/v0.5.1-b12/GTVEmu-0.5.1-b12.ipa",
+          "size": 2534494,
+          "minOSVersion": "17.0",
+          "prerelease": false,
+          "beta": false
+        },
         {
           "bundleIdentifier": "com.za7ef.gtvemu",
           "version": "0.5.0",
@@ -295,18 +307,6 @@
           "localizedDescription": "- أيقونة جديدة للتطبيق.\n- شاشة «حول التطبيق» تعرض رقم الإصدار ورقم البناء ورابط المطوّر والشكر والتراخيص.\n- صفحتا «سياسة الاستخدام» و«سياسة الخصوصية».\n- إشعار داخل التطبيق عند توفر إصدار جديد، مع ملاحظات الإصدار وزرّي «لاحقًا» و«تحديث».\n- أصبح المستودع عامًا، ولم يعد رمز وصول GitHub مطلوبًا لتنزيل ملفات الأنظمة.\n- إصدار مستقل لكل بناء يحمل رقم الإصدار ورقم البناء، مع ملف IPA مرفق.",
           "downloadURL": "https://github.com/za7ef/gtv-emu/releases/download/v0.2.0-b6/GTVEmu-0.2.0-b6.ipa",
           "size": 540599,
-          "minOSVersion": "17.0",
-          "prerelease": false,
-          "beta": false
-        },
-        {
-          "bundleIdentifier": "com.za7ef.gtvemu",
-          "version": "0.1.0",
-          "buildVersion": "1",
-          "date": "2026-11-14T07:37:06Z",
-          "localizedDescription": "ملفات الإقلاع التي ينزّلها تطبيق GTV Emu على iOS، مع manifest.json يصفها.",
-          "downloadURL": "https://github.com/za7ef/gtv-emu/releases/download/images-v1/GTVEmu-unsigned.ipa",
-          "size": 315264,
           "minOSVersion": "17.0",
           "prerelease": false,
           "beta": false
