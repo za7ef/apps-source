@@ -78,6 +78,16 @@
         "https://raw.githubusercontent.com/za7ef/wasm/main/docs/screenshots/settings.jpg"
       ],
       "preferAsset": "Wasm.ipa"
+    },
+    {
+      "repo": "za7ef/home-heroes",
+      "name": "أبطال البيت",
+      "subtitle": "لعبة مهام البيت للأطفال",
+      "localizedDescription": "لعبة كرتونية للأطفال تحوّل مهام البيت إلى مغامرة داخل بيت ملوّن بعدة غرف. اسحب الأغراض إلى أماكنها الصحيحة فتمشي الشخصية وتنفّذ المهمة، واجمع النقاط والمكافآت بعد موافقة الأهل، مع أصوات عربية وموسيقى تفاعلية.",
+      "icon": "icons/home-heroes.png",
+      "tintColor": "#FF9830",
+      "category": "games",
+      "includePrereleases": false
     }
   ]
 }
